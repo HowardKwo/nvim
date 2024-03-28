@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use "neanias/everforest-nvim"
     use "dhruvasagar/vim-table-mode"
+    use "sbdchd/neoformat"  -- format code
     use {
         "instant-markdown/vim-instant-markdown",
         ft = { "markdown" },
