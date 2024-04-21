@@ -32,14 +32,8 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
-    use({
-        "stevearc/oil.nvim",
-        config = function()
-          require("oil").setup()
-        end,
-    })
     use "christoomey/vim-tmux-navigator"
-    use "p00f/nvim-ts-rainbow"
+    -- use "p00f/nvim-ts-rainbow"
     use "shellRaining/hlchunk.nvim"
     use 'norcalli/nvim-colorizer.lua'
     use {
@@ -49,20 +43,6 @@ return require('packer').startup(function(use)
             require("nvim-autopairs").setup {}
         end
     }
-    use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig"
-    }
-
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "L3MON4D3/LuaSnip" -- snippets引擎，不装这个自动补全会出问题
-    use "saadparwaiz1/cmp_luasnip"
-    use "rafamadriz/friendly-snippets"
-    use "hrsh7th/cmp-path" -- 文件路径
-
-    use "numToStr/Comment.nvim" -- gcc和gc注释
     use "lewis6991/gitsigns.nvim" -- 左则git提示
 
     if packer_bootstrap then
