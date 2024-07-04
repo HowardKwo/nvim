@@ -16,13 +16,23 @@ return require('packer').startup(function(use)
     use "neanias/everforest-nvim"
     use "dhruvasagar/vim-table-mode"
     use "sbdchd/neoformat"  -- format code
-    use {
-        "instant-markdown/vim-instant-markdown",
-        ft = { "markdown" },
-        build = "yarn install",
+    use({
+        "stevearc/conform.nvim",
         config = function()
-            vim.g.instant_markdown_autostart = 0
+            require("conform").setup()
         end,
+    })
+    use {
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+        config = function()
+            vim.g.mkdp_browser = "surf"
+            vim.g.mkdp_markdown_css = "/home/haogwo/.config/nvim/lua/plugins/markdown-preview/custom.css"
+        end
     }
     use {
         'nvim-lualine/lualine.nvim',
@@ -44,6 +54,18 @@ return require('packer').startup(function(use)
         end
     }
     use "lewis6991/gitsigns.nvim" -- 左则git提示
+
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.6',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
+    -- Language server protocol
+    use 'neovim/nvim-lspconfig'
 
     if packer_bootstrap then
         require('packer').sync()

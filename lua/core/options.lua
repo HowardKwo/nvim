@@ -13,6 +13,8 @@ opt.cursorcolumn = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.shell = "zsh"
+opt.wrap = false
+opt.mouse = ""  -- disable mouse
 vim.cmd([[colorscheme everforest]])
 
 ---- behavior ----
