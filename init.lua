@@ -10,6 +10,8 @@
  require("plugins.hlchunk")
  require("plugins.colorizer")
  require("plugins.gitsigns")
+ require("plugins.rainbow-delimiters")
+ require("plugins.nvim-ufo")
  require("plugins.table_mode")
  require("plugins.telescope")
  require("plugins.language-server")

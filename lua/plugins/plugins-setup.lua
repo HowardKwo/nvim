@@ -53,7 +53,14 @@ return require('packer').startup(function(use)
             require("nvim-autopairs").setup {}
         end
     }
-    use "lewis6991/gitsigns.nvim" -- 左则git提示
+    use "lewis6991/gitsigns.nvim"  -- 左则git提示
+    use "HiPhish/rainbow-delimiters.nvim"  -- rainbow brackets
+    
+    -- For code folding
+    use {
+        "kevinhwang91/nvim-ufo",
+        requires = "kevinhwang91/promise-async"
+    }
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.6',
