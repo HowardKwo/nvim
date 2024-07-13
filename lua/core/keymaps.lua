@@ -20,6 +20,7 @@ keymap.set("n", "<leader>l", "<C-w>l")
 vim.api.nvim_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('n', 'gi', '<Cmd>lua vim.lsp.buf.implementation()<CR>', { noremap=true, silent=true })
+vim.api.nvim_set_keymap("n", "<C-d>", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 
 
 ---- telescope ----
