@@ -2,21 +2,6 @@
 local lspconfig = require('lspconfig')
 
 local on_attach = function(client, bufnr)
-    -- 禁用自动补全功能
-    client.server_capabilities.completionProvider = false
-
-    -- 禁用诊断信息
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-    -- 保留 hoverProvider
-    -- client.server_capabilities.hoverProvider = false
-    client.server_capabilities.signatureHelpProvider = false
-    client.server_capabilities.codeActionProvider = false
-
-    -- 禁用诊断消息
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function() end
-
-    -- 定义快捷键
     local opts = { noremap=true, silent=true }
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-d>', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
@@ -31,3 +16,8 @@ lspconfig.clangd.setup{
     on_attach = on_attach,
 }
 
+local signs = { Error = "❌", Warn = "⚠", Hint = "💡", Info = "ℹ" }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end

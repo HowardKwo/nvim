@@ -1,10 +1,14 @@
 /*
- * 
+ * Created on: {{CURRENT_TIME}}
+ * Description:
  */
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int main()
-{
-	return EXIT_SUCCESS;
+
+int main() {
+
+    return 0;
 }
+

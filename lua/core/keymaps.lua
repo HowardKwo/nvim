@@ -24,10 +24,10 @@ vim.api.nvim_set_keymap("n", "<C-d>", "<cmd>lua vim.lsp.buf.hover()<CR>", { nore
 
 
 ---- telescope ----
---local builtin = require('telescope.builtin')
---vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
---vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
---vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
---vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
---vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
---vim.keymap.set("n", "<tab>", ":Telescope file_browser<CR>")
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set("n", "<space>fb", ":Telescope file_browser<CR>")
+vim.keymap.set("n", "<tab>", ":Telescope file_browser<CR>")

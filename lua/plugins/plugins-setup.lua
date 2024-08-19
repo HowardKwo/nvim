@@ -16,6 +16,7 @@ return require('packer').startup(function(use)
     use "neanias/everforest-nvim"
     use "dhruvasagar/vim-table-mode"
     use "sbdchd/neoformat"  -- format code
+    use "nvim-tree/nvim-web-devicons"
     use({
         "stevearc/conform.nvim",
         config = function()
