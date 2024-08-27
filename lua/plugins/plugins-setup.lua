@@ -75,6 +75,16 @@ return require('packer').startup(function(use)
     -- Language server protocol
     use 'neovim/nvim-lspconfig'
 
+    -- Auto completion
+    use 'hrsh7th/nvim-cmp'       -- 自动补全引擎
+    use 'hrsh7th/cmp-nvim-lsp'   -- LSP源的补全
+    use 'hrsh7th/cmp-buffer'     -- Buffer源补全
+    use 'hrsh7th/cmp-path'       -- 文件路径补全
+    use 'hrsh7th/cmp-cmdline'    -- 命令行补全
+    use 'hrsh7th/vim-vsnip'      -- 补全时的片段支持
+    use 'hrsh7th/cmp-vsnip'      -- VSnip源的补全
+    use 'onsails/lspkind-nvim'   -- 自动补全图标
+
     if packer_bootstrap then
         require('packer').sync()
     end
