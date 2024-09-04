@@ -15,5 +15,5 @@ require("plugins.nvim-web-devicons")
 require("plugins.table_mode")
 require("plugins.telescope")
 require("plugins.language-server")
-require("plugins.cmp")
+-- require("plugins.cmp")
 

@@ -33,8 +33,17 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {},
+  -- 配置 tabline 来显示缓冲区和标签页
+  tabline = {
+    lualine_a = {'buffers'},  -- 显示缓冲区
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {'tabs'}  -- 显示标签页
+  },
   winbar = {},
   inactive_winbar = {},
   extensions = {}
 }
+
