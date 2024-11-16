@@ -14,6 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use "neanias/everforest-nvim"
+    use "Mofiqul/vscode.nvim"
     use "dhruvasagar/vim-table-mode"
     use "sbdchd/neoformat"  -- format code
     use "nvim-tree/nvim-web-devicons"
@@ -44,8 +45,6 @@ return require('packer').startup(function(use)
         run = ':TSUpdate'
     }
     use "christoomey/vim-tmux-navigator"
-    -- use "p00f/nvim-ts-rainbow"
-    use "shellRaining/hlchunk.nvim"
     use 'norcalli/nvim-colorizer.lua'
     use {
         "windwp/nvim-autopairs",
@@ -56,7 +55,7 @@ return require('packer').startup(function(use)
     }
     use "lewis6991/gitsigns.nvim"  -- 左则git提示
     use "HiPhish/rainbow-delimiters.nvim"  -- rainbow brackets
-    
+
     -- For code folding
     use {
         "kevinhwang91/nvim-ufo",
@@ -72,8 +71,19 @@ return require('packer').startup(function(use)
         "nvim-telescope/telescope-file-browser.nvim",
         requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     }
-    -- Language server protocol
-    use 'neovim/nvim-lspconfig'
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",  -- 这个相当于mason.nvim和lspconfig的桥梁
+        "neovim/nvim-lspconfig"
+    }
+
+    -- preview html lively
+    use {
+        'brianhuster/live-preview.nvim',
+        requires = {
+            'nvim-telescope/telescope.nvim' -- 可选，推荐用于与 Telescope 集成
+        }
+    }
 
     -- Auto completion
     use 'hrsh7th/nvim-cmp'       -- 自动补全引擎
@@ -83,7 +93,9 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-cmdline'    -- 命令行补全
     use 'hrsh7th/vim-vsnip'      -- 补全时的片段支持
     use 'hrsh7th/cmp-vsnip'      -- VSnip源的补全
+    use 'hrsh7th/vim-vsnip-integ'
     use 'onsails/lspkind-nvim'   -- 自动补全图标
+    use 'windwp/nvim-ts-autotag'
 
     if packer_bootstrap then
         require('packer').sync()

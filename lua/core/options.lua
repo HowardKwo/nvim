@@ -15,7 +15,6 @@ opt.signcolumn = "yes"
 opt.shell = "zsh"
 opt.wrap = false
 opt.mouse = ""  -- disable mouse
-vim.cmd([[colorscheme everforest]])
 
 ---- behavior ----
 opt.splitright = true
@@ -45,3 +44,8 @@ vim.cmd([[
     endif
 ]])
 
+
+vim.cmd [[
+    autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 expandtab
+    autocmd FileType json setlocal shiftwidth=2 tabstop=2 expandtab
+]]

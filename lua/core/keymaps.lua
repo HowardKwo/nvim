@@ -10,6 +10,9 @@ keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 ---- no highlighting ----
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
+-- 将 Visual 模式下的 Y 键映射为复制到系统剪贴板
+vim.api.nvim_set_keymap('v', 'Y', '"+y', { noremap = true, silent = false })
+
 ---- move cursor in splited windows ----
 keymap.set("n", "<leader>k", "<C-w>k")
 keymap.set("n", "<leader>j", "<C-w>j")

@@ -1,6 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
+    -- theme = 'vscode',
     theme = 'everforest',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
@@ -33,14 +34,31 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  -- 配置 tabline 来显示缓冲区和标签页
+  -- 自定义 tabline 设置
   tabline = {
-    lualine_a = {'buffers'},  -- 显示缓冲区
+    lualine_a = {
+      {
+        'buffers',
+        symbols = {
+          modified = ' ●', -- 修改过的缓冲区符号
+          alternate_file = '', -- 当前激活的符号，可以留空避免出现 #
+          directory = '', -- 目录符号（如果需要）
+        },
+      }
+    },
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {'tabs'}  -- 显示标签页
+    lualine_z = {
+      {
+        'tabs',
+        symbols = {
+          modified = ' ●', -- 修改过的标签页符号
+          alternate_file = '', -- 当前激活的符号，可以留空避免出现 #
+        },
+      }
+    }
   },
   winbar = {},
   inactive_winbar = {},

@@ -1,4 +1,4 @@
--- 1. 配置nvim-cmp自动补全引擎
+-- 1. 配置 nvim-cmp 自动补全引擎
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
@@ -8,8 +8,12 @@ local has_words_before = function()
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-cmp.setup({
+-- 定义辅助函数 `feedkey`
+local feedkey = function(key, mode)
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
+end
 
+cmp.setup({
   snippet = {
     -- 指定片段引擎
     expand = function(args)
@@ -18,20 +22,20 @@ cmp.setup({
   },
 
   mapping = {
-    -- Use <Tab> to select the next item
+    -- 使用 <Tab> 选择下一个补全项
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif vim.fn  == 1 then
+      elseif vim.fn["vsnip#expandable"]() == 1 then
         feedkey("<Plug>(vsnip-expand-or-jump)", "")
       elseif has_words_before() then
         cmp.complete()
       else
-        fallback() -- The fallback function will be called if the above conditions are not met
+        fallback() -- 如果以上条件不满足则调用 fallback
       end
     end, { "i", "s" }),
 
-    -- Use <S-Tab> to select the previous item
+    -- 使用 <S-Tab> 选择上一个补全项
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
@@ -59,25 +63,30 @@ cmp.setup({
     { name = 'path' },
   },
 
-  -- Set formatting to include lspkind icons
+  -- 使用 lspkind 增加图标
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol_text',  -- Show symbol and text
-      maxwidth = 50,         -- Prevents the popup from becoming too wide
-      ellipsis_char = '...', -- When text is truncated
+      mode = 'symbol_text',  -- 显示符号和文本
+      maxwidth = 50,         -- 限制弹窗宽度
+      ellipsis_char = '...', -- 当文字过长截断
     })
   }
 })
 
--- 2. 配置LSP与nvim-cmp的结合
+-- 2. 配置 LSP 与 nvim-cmp 的结合
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- 在你的LSP配置中加入capabilities
+-- 配置 pyright 和 clangd
 require('lspconfig').pyright.setup{
   capabilities = capabilities,
 }
 
 require('lspconfig').clangd.setup{
+  capabilities = capabilities,
+}
+
+-- 配置 tsserver 以支持 JavaScript 和 TypeScript
+require('lspconfig').ts_ls.setup{
   capabilities = capabilities,
 }
 
