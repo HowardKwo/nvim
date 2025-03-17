@@ -1,8 +1,7 @@
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    -- theme = 'vscode',
-    theme = 'everforest',
+    theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
     disabled_filetypes = {
@@ -13,9 +12,9 @@ require('lualine').setup {
     always_divide_middle = true,
     globalstatus = false,
     refresh = {
-      statusline = 1000,
-      tabline = 1000,
-      winbar = 1000,
+      statusline = 300,
+      tabline = 300,
+      winbar = 300,
     }
   },
   sections = {

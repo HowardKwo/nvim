@@ -15,6 +15,7 @@ opt.signcolumn = "yes"
 opt.shell = "zsh"
 opt.wrap = false
 opt.mouse = ""  -- disable mouse
+opt.autoread = true
 
 ---- behavior ----
 opt.splitright = true
