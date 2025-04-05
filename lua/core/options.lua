@@ -16,6 +16,7 @@ opt.shell = "zsh"
 opt.wrap = false
 opt.mouse = ""  -- disable mouse
 opt.autoread = true
+opt.backupcopy = "yes"
 
 ---- behavior ----
 opt.splitright = true

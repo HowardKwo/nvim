@@ -25,18 +25,14 @@ return require('packer').startup(function(use)
         require("conform").setup()
     end,
   })
-  use {
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-    setup = function()
-        vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
+  use({
+    'MeanderingProgrammer/render-markdown.nvim',
+    after = { 'nvim-treesitter' },
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }, -- if you prefer nvim-web-devicons
     config = function()
-        vim.g.mkdp_browser = "surf"
-        vim.g.mkdp_markdown_css = "/home/haogwo/.config/nvim/lua/plugins/markdown-preview/custom.css"
-    end
-  }
+        require('render-markdown').setup({})
+    end,
+  })
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }

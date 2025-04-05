@@ -2,6 +2,7 @@ require("core.options")
 require("core.keymaps")
 require("core.templates")
 require("core.comment_style")
+require("core.commands")
 require("plugins.plugins-setup")
 require("plugins.treesitter")
 
